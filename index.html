@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <title>Погода</title>
+  </head>
+  <body>
+    <div class="noise"></div>
+
+    <main class="app" id="app">
+      <div class="search-wrap">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Пошук міста..."
+            autocomplete="off"
+          />
+          <button id="searchBtn" title="Знайти">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="quick-cities">
+          <button class="qc" data-city="Kyiv">Київ</button>
+          <button class="qc" data-city="Lviv">Львів</button>
+          <button class="qc" data-city="Odessa">Одеса</button>
+          <button class="qc" data-city="Kharkiv">Харків</button>
+          <button class="qc" data-city="London">Лондон</button>
+          <button class="qc" data-city="Paris">Париж</button>
+          <button class="qc" data-city="New York">Нью-Йорк</button>
+        </div>
+      </div>
+
+      <div class="loader" id="loader">
+        <div class="loader-ring"></div>
+        <p>Завантаження...</p>
+      </div>
+
+      <div class="weather-card" id="weatherCard" style="display:none">
+        <div class="card-top">
+          <div class="city-label">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="cityName">Київ</span>
+            <span class="country" id="country">UA</span>
+          </div>
+          <div class="datetime" id="datetime"></div>
+        </div>
+
+        <div class="hero">
+          <div class="temp-block">
+            <span class="temp" id="temp">—</span>
+            <span class="temp-unit">°C</span>
+          </div>
+          <div class="condition-block">
+            <img class="condition-icon" id="condIcon" src="" alt="" />
+            <span class="condition-text" id="condText">—</span>
+          </div>
+        </div>
+
+        <div class="feels-like">
+          Відчувається як <strong id="feelsLike">—</strong>°C
+        </div>
+
+        <div class="grid">
+          <div class="stat">
+            <i class="fas fa-wind"></i>
+            <span class="stat-val" id="wind">—</span>
+            <span class="stat-lbl">Вітер км/г</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-tint"></i>
+            <span class="stat-val" id="humidity">—</span>
+            <span class="stat-lbl">Вологість %</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-eye"></i>
+            <span class="stat-val" id="visibility">—</span>
+            <span class="stat-lbl">Видимість км</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-compress-arrows-alt"></i>
+            <span class="stat-val" id="pressure">—</span>
+            <span class="stat-lbl">Тиск мб</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-sun"></i>
+            <span class="stat-val" id="uv">—</span>
+            <span class="stat-lbl">УФ-індекс</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-cloud"></i>
+            <span class="stat-val" id="cloud">—</span>
+            <span class="stat-lbl">Хмарність %</span>
+          </div>
+        </div>
+
+        <div class="forecast-section">
+          <div class="forecast-title">Прогноз на 3 дні</div>
+          <div class="forecast-row" id="forecastRow"></div>
+        </div>
+
+        <div class="updated">
+          Оновлено: <span id="updatedAt">—</span>
+        </div>
+      </div>
+
+      <div class="error-msg" id="errorMsg" style="display:none">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>Не вдалося завантажити дані погоди.</p>
+      </div>
+    </main>
+
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- 3c97da0b60684d6f970130747260506 -->
